@@ -1,0 +1,31 @@
+/*
+	Sum Of Diagonal Matrix
+*/
+
+#include <stdio.h>
+
+main()
+{
+    int testCases= 0, sq= 0, d1, d2;
+    scanf("%d",&testCases);
+    
+    while(testCases--)
+    {   
+        d1= 0;
+        d2= 0;
+        scanf("%d", &sq);
+        int matrix[sq+1][sq+1];
+        for (int i= 1; i<=sq; i++)
+        {
+            for (int j= 1; j<=sq; j++)
+            {
+                scanf("%d",&matrix[i][j]);
+                if (i==j)
+                    d1= d1 + matrix[i][j];
+            }
+            d2= d2 + matrix[i][sq-i+1];
+        }
+        
+        printf("%d\n", d1+d2);            
+    }
+}
